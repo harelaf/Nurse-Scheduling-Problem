@@ -33,7 +33,7 @@ After reading the list of nurses from a txt file, we created a SimpleEvolution E
 
 After the successful execution the results are printed to the screen and to a txt file.
 
-Our problem is a minimization problem, we would like to minimize the total amount of constraints not held by the current schedule. Because of that, our target fitness value is 0, the higher the fitness, the worse the schedule is.
+The problem we are solving is a minimization problem, we would like to minimize the total amount of constraints not held by the current schedule. Because of that, our target fitness value is 0, the higher the fitness, the worse the schedule is.
 
 Our population contains 500 individuals, each individual is a bit vector of length (total nurse amount) * (total shifts per week). The custom evaluation method we wrote evaluated an individual based on the above written constraints. As stated before, hard constraints are more important than soft constraints, which is why the evaluation method adds a heavier weight to the fitness score when one is broken.
 
