@@ -7,8 +7,10 @@ Our files are located in examples/vectorga/nurse_scheduling_problem
 Given a list of nurses and chief nurses, and how many are required per shift in a day, return a schedule that upholds all the constraints.
 * We will schedule the nurses for the next 7 days.
 * There are 3 shifts per day. Morning - 7AM-2PM. Afternoon - 2PM-9PM. Night - 9PM-7AM.
+
 We separate our constraints in to two: hard constraints and soft constraints.
 Hard constraints are more important and have a heavier weight than soft constraints.
+
 Hard constraints:
 1. No nurse is allowed to work 3 or more consecutive night shifts.
 2. No nurse is allowed to work a morning shift after a night shift.
