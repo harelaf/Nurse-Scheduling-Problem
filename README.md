@@ -63,3 +63,8 @@ WORK IN PROGRESS
 }
 
 ```
+
+### Additional Sources
+* http://www.columbia.edu/~cs2035/courses/ieor4405.S17/p23.pdf
+* https://iopscience.iop.org/article/10.1088/1757-899X/166/1/012024/pdf
+* https://en.wikipedia.org/wiki/Nurse_scheduling_problem
