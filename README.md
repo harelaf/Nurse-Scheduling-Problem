@@ -1,9 +1,7 @@
-# Solving The 'Nurse Scheduling Problem' With EC-KitY 
+# Solving The 'Nurse Scheduling Problem' Using EC-KitY 
 The problem we will solve using the tools provided by EC-KitY is the 'Nurse Scheduling Problem'.
 
-Note:
-
-Our files are located in examples/vectorga/nurse_scheduling_problem
+Note: Our files are located in examples/vectorga/nurse_scheduling_problem
 
 ## About The Problem
 Given a list of nurses and chief nurses, and how many are required per shift in a day, return a schedule that upholds all the constraints.
@@ -42,7 +40,27 @@ We used two types of mutations:
 2. An N-Bit-Flip-Mutation. After many tests and parameter changes, we've decided that the best number of bits to flip is n=3.
 
 ## Statistics And Results
-WORK IN PROGRESS
+In our example we used 30 total nurses (9 chief nurses and 21 nurses, Nurses.txt file is located in examples/vectorga/nurse_scheduling_problem).
+
+Max generation = 1000
+
+Population size = 200
+
+After 10 executions (with random seeds), these are the results:
+
+| Run # | Generation | Total time | fitness |
+| ----- | ---------- | ---------- | ------- |
+| #1 | 521 | 127.7s | 0.0 |
+| #2 | 1000 | 282s | 1.0 |
+| #3 | 642 | 183s | 0.0 |
+| #4 |  |  |  |
+| #5 |  |  |  |
+| #6 |  |  |  |
+| #7 |  |  |  |
+| #8 |  |  |  |
+| #9 |  |  |  |
+| #10 |  |  |  |
+| Total |  |  |  |
 
 
 ## Citation
