@@ -66,12 +66,10 @@ After 20 executions (with random seeds), these are the results:
 | #14 | 293 | 87.5s | 0.0 |
 | #15 | 1000 | 296.3s | 1.0 |
 | #16 | 550 | 162.8s | 0.0 |
-| #17 |  |  |  |
+| #17 | 154 | 40s | 0.0 |
 | #18 |  |  |  |
 | #19 |  |  |  |
 | #20 |  |  |  |
-
-
 
 
 ## Citation
