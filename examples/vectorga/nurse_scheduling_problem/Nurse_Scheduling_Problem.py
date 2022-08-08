@@ -5,6 +5,7 @@ from SchedulingEvaluator import SHIFTS_PER_DAY
 from SchedulingEvaluator import MORNING_SHIFT
 from SchedulingEvaluator import AFTERNOON_SHIFT
 from SchedulingEvaluator import NIGHT_SHIFT
+
 from eckity.algorithms.simple_evolution import SimpleEvolution
 from eckity.subpopulation import Subpopulation
 from eckity.creators.ga_creators.bit_string_vector_creator import GABitStringVectorCreator
@@ -14,12 +15,14 @@ from eckity.genetic_operators.selections.tournament_selection import TournamentS
 from eckity.breeders.simple_breeder import SimpleBreeder
 from eckity.statistics.best_average_worst_statistics import BestAverageWorstStatistics
 
+from vector_k_point_crossover_multiplicity_of_n import VectorKPointsCrossoverWithMultiplicity
+
 FILENAME = 'Nurses.txt'
 RESULTS_FILE = 'Results.txt'
 NURSE_LIST = []
 CHIEF_LIST = []
-POPULATION_SIZE = 200
-MAX_GENERATION = 500
+POPULATION_SIZE = 500
+MAX_GENERATION = 1000
 
 
 def read_file():
@@ -94,22 +97,24 @@ def main():
             evaluator=NurseSchedulingEvaluator(nurse_amount=len(NURSE_LIST), chief_amount=len(CHIEF_LIST)),
             # This is a minimization problem, since we want to minimize the total amount of constraints broken.
             higher_is_better=False,
-            elitism_rate=0.2,
+            elitism_rate=0.3,
             # 50% chance for a (SHIFTS_PER_WEEK - 1) point vector-crossover,
             # 20% chance for an N bit flip mutation with N=0.2*vector_length.
             operators_sequence=[
-                VectorKPointsCrossover(probability=0.5, k=SHIFTS_PER_WEEK - 1),
-                BitStringVectorNFlipMutation(probability=0.2, n=int(bit_vector_length * 0.2)),
+                VectorKPointsCrossoverWithMultiplicity(probability=0.7, n=(len(NURSE_LIST) + len(CHIEF_LIST)), k=6),
+                #VectorKPointsCrossover(probability=0.7, k=(len(NURSE_LIST) + len(CHIEF_LIST))),
+                BitStringVectorNFlipMutation(probability=0.2, n=int(bit_vector_length * 0.4), probability_for_each=0.2)
             ],
             # Tournament selection with a probability of 1 and with tournament size of 5.
             selection_methods=[
-                (TournamentSelection(tournament_size=10, higher_is_better=False), 1)
+                (TournamentSelection(tournament_size=16, higher_is_better=False), 1)
             ]
         ),
         breeder=SimpleBreeder(),
-        max_workers=5,
+        max_workers=1,
         max_generation=MAX_GENERATION,
-        statistics=BestAverageWorstStatistics()
+        statistics=BestAverageWorstStatistics(),
+        random_seed=0
     )
     algo.evolve()
     print(algo.execute())

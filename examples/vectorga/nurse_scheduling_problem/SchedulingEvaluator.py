@@ -34,8 +34,6 @@ class NurseSchedulingEvaluator(SimpleIndividualEvaluator):
         The total amount of nurses (chief and regular).
     constraints: function list
         A list of the scheduling constraints, as evaluation functions.
-    individual: any
-        The given schedule given to evaluate its fitness.
     """
 
     def __init__(self, nurse_amount, chief_amount, hard_weight=10., soft_weight=1.):
@@ -57,96 +55,93 @@ class NurseSchedulingEvaluator(SimpleIndividualEvaluator):
         self.constraints.append(self.soft_no_3_consecutive_shifts)
 
     # Hard constraints
-    def hard_no_3_consecutive_night_shifts(self, nurse):
+    def hard_no_3_consecutive_night_shifts(self, individual, nurse):
         consecutive_days = 0
         for i in range(SCHEDULING_DAYS):
             block = self.total_nurses * (i * SHIFTS_PER_DAY + NIGHT_SHIFT) + nurse
-            if self.individual.cell_value(block):
+            if individual.cell_value(block):
                 consecutive_days += 1
             else:
                 consecutive_days = 0
             if consecutive_days >= 3:
                 return self.hard_weight
-        if consecutive_days >= 3:
-            return self.hard_weight
         return 0.
 
-    def hard_no_morning_shift_after_night_shift(self, nurse):
+    def hard_no_morning_shift_after_night_shift(self, individual, nurse):
         for i in range(1, SCHEDULING_DAYS - 1):
             night_shift = self.total_nurses * ((i - 1) * SHIFTS_PER_DAY + NIGHT_SHIFT) + nurse
             morning_shift = self.total_nurses * (i * SHIFTS_PER_DAY + MORNING_SHIFT) + nurse
-            if self.individual.cell_value(night_shift) and self.individual.cell_value(morning_shift):
+            if individual.cell_value(night_shift) and individual.cell_value(morning_shift):
                 return self.hard_weight
         return 0.
 
-    def hard_shift_nurse_constraints(self, shift, chief_requirement, nurse_requirement):
+    def hard_shift_nurse_constraints(self, individual, shift, chief_requirement, nurse_requirement):
         chiefs = 0
         nurses = 0
         result = 0.
         for i in range(SCHEDULING_DAYS):
             row = (i * SHIFTS_PER_DAY + shift) * self.total_nurses
             for j in range(self.chief_amount):
-                chiefs += self.individual.cell_value(row + j)
+                chiefs += individual.cell_value(row + j)
             for j in range(self.chief_amount, self.total_nurses):
-                nurses += self.individual.cell_value(row + j)
+                nurses += individual.cell_value(row + j)
             if chiefs < chief_requirement:
                 result += self.hard_weight
+            if chiefs > chief_requirement:
+                result += (2 * self.soft_weight) * (chiefs - chief_requirement)
             if nurses < nurse_requirement:
                 result += self.hard_weight
+            if nurses > nurse_requirement:
+                result += self.soft_weight * (nurses - nurse_requirement)
             chiefs = 0
             nurses = 0
         return result
 
     # Soft constraints
-    def soft_at_least_one_off_day_per_week(self, nurse):
+    def soft_at_least_one_off_day_per_week(self, individual, nurse):
         for i in range(SCHEDULING_DAYS):
             morning = self.total_nurses * (i * SHIFTS_PER_DAY + MORNING_SHIFT) + nurse
             afternoon = self.total_nurses * (i * SHIFTS_PER_DAY + AFTERNOON_SHIFT) + nurse
             night = self.total_nurses * (i * SHIFTS_PER_DAY + NIGHT_SHIFT) + nurse
-            if (not self.individual.cell_value(morning)) and \
-                    (not self.individual.cell_value(afternoon)) and \
-                    (not self.individual.cell_value(night)):
+            if (not individual.cell_value(morning)) and \
+                    (not individual.cell_value(afternoon)) and \
+                    (not individual.cell_value(night)):
                 return 0.
         return self.soft_weight
 
-    def soft_max_3_night_shifts_per_week(self, nurse):
+    def soft_max_3_night_shifts_per_week(self, individual, nurse):
         night_days = 0
         for i in range(SCHEDULING_DAYS):
             block = self.total_nurses * (i * SHIFTS_PER_DAY + NIGHT_SHIFT) + nurse
-            if self.individual.cell_value(block):
+            if individual.cell_value(block):
                 night_days += 1
             if night_days >= 4:
                 return self.soft_weight
-        if night_days >= 4:
-            return self.soft_weight
         return 0.
 
-    def soft_no_3_consecutive_shifts(self, nurse):
+    def soft_no_3_consecutive_shifts(self, individual, nurse):
         consecutive_shifts = 0
         for i in range(SHIFTS_PER_WEEK):
             block = self.total_nurses * i + nurse
-            if self.individual.cell_value(block):
+            if individual.cell_value(block):
                 consecutive_shifts += 1
             else:
                 consecutive_shifts = 0
             if consecutive_shifts >= 3:
                 return self.hard_weight
-        if consecutive_shifts >= 3:
-            return self.hard_weight
         return 0.
 
     def _evaluate_individual(self, individual):
-        self.individual = individual
         evaluation_score = 0.
 
         # General constraints
-        evaluation_score += self.hard_shift_nurse_constraints(MORNING_SHIFT, MORNING_CHIEF, MORNING_NURSES)
-        evaluation_score += self.hard_shift_nurse_constraints(AFTERNOON_SHIFT, AFTERNOON_CHIEF, AFTERNOON_NURSES)
-        evaluation_score += self.hard_shift_nurse_constraints(NIGHT_SHIFT, NIGHT_CHIEF, NIGHT_NURSES)
+        evaluation_score += self.hard_shift_nurse_constraints(individual, MORNING_SHIFT, MORNING_CHIEF, MORNING_NURSES)
+        evaluation_score += self.hard_shift_nurse_constraints(individual, AFTERNOON_SHIFT, AFTERNOON_CHIEF, AFTERNOON_NURSES)
+        evaluation_score += self.hard_shift_nurse_constraints(individual, NIGHT_SHIFT, NIGHT_CHIEF, NIGHT_NURSES)
 
         # Constraints list
         for nurse in range(self.total_nurses):
             for func in self.constraints:
-                evaluation_score += func(nurse)
+                evaluation_score += func(individual, nurse)
 
         return evaluation_score
