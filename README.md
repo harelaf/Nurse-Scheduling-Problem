@@ -48,7 +48,7 @@ Population size = 200
 
 After 20 executions (with random seeds), these are the results:
 
-| Run # | Generation | Total time | fitness |
+| Run # | Generation | Total time | Fitness |
 | ----- | ---------- | ---------- | ------- |
 | #1 | 522 | 127.7s | 0.0 |
 | #2 | 1000 | 282s | 1.0 |
@@ -67,10 +67,23 @@ After 20 executions (with random seeds), these are the results:
 | #15 | 1000 | 296.3s | 1.0 |
 | #16 | 550 | 162.8s | 0.0 |
 | #17 | 154 | 40s | 0.0 |
-| #18 |  |  |  |
-| #19 |  |  |  |
-| #20 |  |  |  |
+| #18 | 1000 | 294.4s | 2.0 |
+| #19 | 336 | 99.3s | 0.0 |
+| #20 | 424 | 122.7s | 0.0 |
 
+| Avg. generation | Avg. time | Avg. fitness |
+| --------------- | --------- | ------------ |
+| 590.45 | 170.85s | 0.4 |
+
+Our worst run was #18, with a fitness score of 2.0. This result probably means that 2 soft constraints were not solved by the evolutionary algorithm.
+
+Our best run was #17, with a fitness score of 0.0, a time of 40s and only 154 generations. This is the optimal fitness score, which means that the schedule holds all of the constraints.
+
+As you can see, 13 out of the 20 executions resulted in a successful run, and an optimal schedule (fitness=0.0).
+
+The average fitness was 0.4 which is lower than the default soft weight (1.0).
+
+You can view a successful schedule in "Results.txt".
 
 ## Citation
 
