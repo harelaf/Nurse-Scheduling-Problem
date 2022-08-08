@@ -68,7 +68,7 @@ class NurseSchedulingEvaluator(SimpleIndividualEvaluator):
         return 0.
 
     def hard_no_morning_shift_after_night_shift(self, individual, nurse):
-        for i in range(1, SCHEDULING_DAYS - 1):
+        for i in range(1, SCHEDULING_DAYS):
             night_shift = self.total_nurses * ((i - 1) * SHIFTS_PER_DAY + NIGHT_SHIFT) + nurse
             morning_shift = self.total_nurses * (i * SHIFTS_PER_DAY + MORNING_SHIFT) + nurse
             if individual.cell_value(night_shift) and individual.cell_value(morning_shift):

@@ -10,27 +10,27 @@
 // Z
 
 nurses:
-Julia
-Rose
-Joe
-Ben
-Michal
-Danielle
-Natasha
-Khaled
-Marry
-George
-Chris
-Monika
-Max
-Vivian
-Albert
+Shilo
 Shimshon
 Shoshana
 Shlomi
 Shulla
 Shaked
 Shishlik
+Simha
+Shirel
+Shlomit
+Shulamit
+Shalom
+Shimi
+Shemer
+Sharon
+Shelly
+Shan
+Shani
+Shahar
+Shir
+Shirley
 
 chief nurses:
 Mr. Krabs
