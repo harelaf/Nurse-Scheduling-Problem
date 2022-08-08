@@ -11,6 +11,7 @@ from eckity.subpopulation import Subpopulation
 from eckity.creators.ga_creators.bit_string_vector_creator import GABitStringVectorCreator
 from eckity.genetic_operators.crossovers.vector_k_point_crossover import VectorKPointsCrossover
 from eckity.genetic_operators.mutations.vector_random_mutation import BitStringVectorNFlipMutation
+from eckity.genetic_operators.mutations.vector_random_mutation import BitStringVectorNFlipMutationWithWeight
 from eckity.genetic_operators.selections.tournament_selection import TournamentSelection
 from eckity.breeders.simple_breeder import SimpleBreeder
 from eckity.statistics.best_average_worst_statistics import BestAverageWorstStatistics
@@ -97,15 +98,14 @@ def main():
             evaluator=NurseSchedulingEvaluator(nurse_amount=len(NURSE_LIST), chief_amount=len(CHIEF_LIST)),
             # This is a minimization problem, since we want to minimize the total amount of constraints broken.
             higher_is_better=False,
-            elitism_rate=0.3,
+            elitism_rate=0.2,
             # 50% chance for a (SHIFTS_PER_WEEK - 1) point vector-crossover,
             # 20% chance for an N bit flip mutation with N=0.2*vector_length.
             operators_sequence=[
-                VectorKPointsCrossoverWithMultiplicity(probability=0.7, n=(len(NURSE_LIST) + len(CHIEF_LIST)), k=6),
-                #VectorKPointsCrossover(probability=0.7, k=(len(NURSE_LIST) + len(CHIEF_LIST))),
-                BitStringVectorNFlipMutation(probability=0.2, n=int(bit_vector_length * 0.4), probability_for_each=0.2)
+                VectorKPointsCrossoverWithMultiplicity(probability=0.7, n=(len(NURSE_LIST) + len(CHIEF_LIST)), k=SCHEDULING_DAYS),
+                BitStringVectorNFlipMutationWithWeight(probability=0.3, n=3, flip_1_prob=0.6)
             ],
-            # Tournament selection with a probability of 1 and with tournament size of 5.
+            # Tournament selection with a probability of 1 and with tournament size of 16.
             selection_methods=[
                 (TournamentSelection(tournament_size=16, higher_is_better=False), 1)
             ]
@@ -114,7 +114,6 @@ def main():
         max_workers=1,
         max_generation=MAX_GENERATION,
         statistics=BestAverageWorstStatistics(),
-        random_seed=0
     )
     algo.evolve()
     print(algo.execute())
