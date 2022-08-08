@@ -46,7 +46,7 @@ Max generation = 1000
 
 Population size = 200
 
-After 10 executions (with random seeds), these are the results:
+After 20 executions (with random seeds), these are the results:
 
 | Run # | Generation | Total time | fitness |
 | ----- | ---------- | ---------- | ------- |
@@ -58,9 +58,18 @@ After 10 executions (with random seeds), these are the results:
 | #6 | 1000 | 271s | 1.0 |
 | #7 | 457 | 157.2s | 0.0 |
 | #8 | 211 | 60s | 0.0 |
-| #9 |  |  |  |
+| #9 | 619 | 184.3s | 0.0 |
 | #10 |  |  |  |
-| Total |  |  |  |
+| #11 |  |  |  |
+| #12 |  |  |  |
+| #13 |  |  |  |
+| #14 |  |  |  |
+| #15 |  |  |  |
+| #16 |  |  |  |
+| #17 |  |  |  |
+| #18 |  |  |  |
+| #19 |  |  |  |
+| #20 |  |  |  |
 
 
 ## Citation
