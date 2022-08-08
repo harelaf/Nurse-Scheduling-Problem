@@ -7,37 +7,37 @@ Chief nurses:
 Pearl
 
 Nurses:
-Danielle
-Shoshana
-Sasson
+Michal
+Max
+Shulla
 
 Afternoon Shift - 2PM-9PM
 ==========
 Chief nurses:
-Mr. Krabs
-Larry
+Plankton
+Sandy
 
 Nurses:
-Rose
-Khaled
-Shoshana
+Joe
+Danielle
+Natasha
+Shulla
 Shishlik
-Sasson
 
 Night Shift - 9PM-7AM
 ==========
 Chief nurses:
+Spongebob
 Squidward
-Garry
 
 Nurses:
 Julia
 Rose
 Joe
 Natasha
-Khaled
-Monika
-Albert
+Marry
+Shimshon
+Shoshana
 
 Day 2
 ==========
@@ -45,40 +45,40 @@ Day 2
 Morning Shift - 7AM-2PM
 ==========
 Chief nurses:
-Larry
+Patrick
 
 Nurses:
+Khaled
 Max
-Vivian
-Shoshana
+Shishlik
 
 Afternoon Shift - 2PM-9PM
 ==========
 Chief nurses:
-Mr. Krabs
 Plankton
+Garry
 
 Nurses:
-Julia
-Albert
-Shimshon
-Shlomi
-Shishlik
+Rose
+Marry
+George
+Chris
+Monika
 
 Night Shift - 9PM-7AM
 ==========
 Chief nurses:
-Spongebob
-Garry
+Mr. Krabs
+Larry
 
 Nurses:
-Marry
+Rose
+Joe
+Ben
+Michal
 George
-Monika
-Vivian
+Shoshana
 Shlomi
-Shaked
-Shishlik
 
 Day 3
 ==========
@@ -86,12 +86,53 @@ Day 3
 Morning Shift - 7AM-2PM
 ==========
 Chief nurses:
-Plankton
+Sandy
 
 Nurses:
 Julia
-Michal
+Marry
 Shulla
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Mr. Krabs
+Patrick
+
+Nurses:
+Julia
+Chris
+Monika
+Max
+Albert
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Plankton
+Garry
+
+Nurses:
+Marry
+Chris
+Monika
+Max
+Vivian
+Shulla
+Shaked
+
+Day 4
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Squidward
+
+Nurses:
+Rose
+Khaled
+Shishlik
 
 Afternoon Shift - 2PM-9PM
 ==========
@@ -101,27 +142,27 @@ Patrick
 
 Nurses:
 Ben
-Albert
-Shimshon
-Shulla
-Shaked
+Michal
+Natasha
+George
+Monika
 
 Night Shift - 9PM-7AM
 ==========
 Chief nurses:
 Mr. Krabs
-Sandy
+Pearl
 
 Nurses:
-Julia
-Rose
-Joe
+Ben
 Michal
-Khaled
-Max
-Shimshon
+Danielle
+Natasha
+Albert
+Shlomi
+Shulla
 
-Day 4
+Day 5
 ==========
 
 Morning Shift - 7AM-2PM
@@ -130,77 +171,36 @@ Chief nurses:
 Larry
 
 Nurses:
-Chris
-Shulla
-Shishlik
+Rose
+Vivian
+Shoshana
 
 Afternoon Shift - 2PM-9PM
 ==========
 Chief nurses:
-Mr. Krabs
 Pearl
+Garry
 
 Nurses:
-Joe
 Michal
-Vivian
-Shlomi
+Danielle
+George
+Albert
 Shaked
 
 Night Shift - 9PM-7AM
 ==========
 Chief nurses:
 Plankton
-Spongebob
+Squidward
 
 Nurses:
-Joe
-Ben
 Natasha
 George
 Chris
-Monika
+Max
 Albert
-
-Day 5
-==========
-
-Morning Shift - 7AM-2PM
-==========
-Chief nurses:
-Mr. Krabs
-
-Nurses:
-Rose
-Khaled
-Marry
-
-Afternoon Shift - 2PM-9PM
-==========
-Chief nurses:
-Squidward
-Garry
-
-Nurses:
-Rose
-Chris
-Vivian
 Shoshana
-Shulla
-
-Night Shift - 9PM-7AM
-==========
-Chief nurses:
-Spongebob
-Pearl
-
-Nurses:
-Michal
-Danielle
-Khaled
-Marry
-Vivian
-Shimshon
 Shlomi
 
 Day 6
@@ -209,40 +209,40 @@ Day 6
 Morning Shift - 7AM-2PM
 ==========
 Chief nurses:
-Squidward
+Sandy
 
 Nurses:
 Joe
-Albert
-Shoshana
+Khaled
+Marry
 
 Afternoon Shift - 2PM-9PM
 ==========
 Chief nurses:
-Plankton
-Sandy
+Spongebob
+Squidward
 
 Nurses:
-Julia
 Rose
-Khaled
-Shishlik
-Sasson
+Michal
+Danielle
+Albert
+Shulla
 
 Night Shift - 9PM-7AM
 ==========
 Chief nurses:
-Plankton
-Pearl
+Larry
+Sandy
 
 Nurses:
 Julia
-Rose
-Michal
-Natasha
+Danielle
+Khaled
+Marry
+Monika
+Shulla
 Shaked
-Shishlik
-Sasson
 
 Day 7
 ==========
@@ -250,38 +250,38 @@ Day 7
 Morning Shift - 7AM-2PM
 ==========
 Chief nurses:
-Patrick
+Larry
 
 Nurses:
 Ben
+Monika
 Vivian
-Shimshon
 
 Afternoon Shift - 2PM-9PM
 ==========
 Chief nurses:
-Plankton
-Spongebob
+Mr. Krabs
+Garry
 
 Nurses:
+Danielle
 Natasha
-Chris
-Shulla
-Shaked
-Sasson
+Khaled
+Shimshon
+Shishlik
 
 Night Shift - 9PM-7AM
 ==========
 Chief nurses:
-Squidward
+Mr. Krabs
 Garry
 
 Nurses:
-George
-Chris
+Rose
+Joe
+Ben
+Michal
+Danielle
+Khaled
 Vivian
-Albert
-Shaked
-Shishlik
-Sasson
 

@@ -21,7 +21,7 @@ FILENAME = 'Nurses.txt'
 RESULTS_FILE = 'Results.txt'
 NURSE_LIST = []
 CHIEF_LIST = []
-POPULATION_SIZE = 200
+POPULATION_SIZE = 150
 MAX_GENERATION = 1000
 
 
@@ -97,11 +97,11 @@ def main():
             evaluator=NurseSchedulingEvaluator(nurse_amount=len(NURSE_LIST), chief_amount=len(CHIEF_LIST)),
             # This is a minimization problem, since we want to minimize the total amount of constraints broken.
             higher_is_better=False,
-            elitism_rate=0.25,
+            elitism_rate=0.3,
             # 50% chance for a (SHIFTS_PER_WEEK - 1) point vector-crossover,
             # 20% chance for an N bit flip mutation with N=0.2*vector_length.
             operators_sequence=[
-                VectorKPointsCrossoverWithMultiplicity(probability=0.8, n=(len(NURSE_LIST) + len(CHIEF_LIST)), k=4),
+                VectorKPointsCrossoverWithMultiplicity(probability=0.8, n=(len(NURSE_LIST) + len(CHIEF_LIST)), k=3),
                 #VectorKPointsCrossover(probability=0.7, k=(len(NURSE_LIST) + len(CHIEF_LIST))),
                 BitStringVectorNFlipMutation(probability=0.8, n=3, probability_for_each=0.5)
             ],
