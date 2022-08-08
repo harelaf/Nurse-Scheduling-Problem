@@ -87,11 +87,11 @@ class NurseSchedulingEvaluator(SimpleIndividualEvaluator):
                 nurses += individual.cell_value(row + j)
             if chiefs < chief_requirement:
                 result += self.hard_weight
-            if chiefs > chief_requirement:
-                result += (2 * self.soft_weight) * (chiefs - chief_requirement)
+            elif chiefs > chief_requirement:
+                result += self.soft_weight * (chiefs - chief_requirement)
             if nurses < nurse_requirement:
                 result += self.hard_weight
-            if nurses > nurse_requirement:
+            elif nurses > nurse_requirement:
                 result += self.soft_weight * (nurses - nurse_requirement)
             chiefs = 0
             nurses = 0

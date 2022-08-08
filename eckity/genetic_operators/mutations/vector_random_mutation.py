@@ -7,6 +7,7 @@ class FloatVectorUniformOnePointMutation(VectorNPointMutation):
     """
     Uniform One Point Float Mutation
     """
+
     def __init__(self, probability=1.0, arity=1, events=None):
         super().__init__(n=1,
                          probability=probability,
@@ -19,6 +20,7 @@ class FloatVectorUniformNPointMutation(VectorNPointMutation):
     """
     Uniform N Point Float Mutation
     """
+
     def __init__(self, n=1, probability=1.0, arity=1, events=None):
         super().__init__(n=n,
                          probability=probability,
@@ -31,6 +33,7 @@ class FloatVectorGaussOnePointMutation(VectorNPointMutation):
     """
     Gaussian One Point Float Mutation
     """
+
     def __init__(self, probability=1.0, arity=1, mu=0.0, sigma=1.0, events=None, attempts=5):
         super().__init__(n=1,
                          probability=probability,
@@ -51,6 +54,7 @@ class FloatVectorGaussNPointMutation(VectorNPointMutation):
     """
     Gaussian N Point Float Mutation
     """
+
     def __init__(self, n=1, probability=1.0, arity=1, mu=0.0, sigma=1.0, events=None, attempts=5):
         super().__init__(n=n,
                          probability=probability,
@@ -71,6 +75,7 @@ class IntVectorOnePointMutation(VectorNPointMutation):
     """
     Uniform One Point Integer Mutation
     """
+
     def __init__(self, probability=1.0, arity=1, events=None):
         super().__init__(probability=probability,
                          arity=arity,
@@ -83,6 +88,7 @@ class IntVectorNPointMutation(VectorNPointMutation):
     """
     Uniform N Point Integer Mutation
     """
+
     def __init__(self, probability=1.0, arity=1, events=None, n=1):
         super().__init__(probability=probability,
                          arity=arity,
@@ -95,6 +101,7 @@ class BitStringVectorFlipMutation(VectorNPointMutation):
     """
     One Point Bit-Flip Mutation
     """
+
     def __init__(self, probability=1.0, arity=1, events=None):
         super().__init__(probability=probability,
                          arity=arity,
@@ -107,11 +114,30 @@ class BitStringVectorNFlipMutation(VectorNPointMutation):
     """
     N Point Bit-Flip Mutation
     """
+
     def __init__(self, probability=1.0, arity=1, events=None, probability_for_each=0.2, n=1):
         self.probability_for_each = probability_for_each
         super().__init__(probability=probability,
                          arity=arity,
                          mut_val_getter=lambda individual, index: individual.bit_flip(
                              index) if random() <= self.probability_for_each else individual.cell_value(index),
+                         events=events,
+                         n=n)
+
+
+class BitStringVectorNFlipMutationWithWeight(VectorNPointMutation):
+    """
+    N Point Bit-Flip Mutation With Weight
+    """
+
+    def __init__(self, probability=1.0, arity=1, events=None, flip_1_prob=0.5, n=1):
+        self.flip_1_prob = flip_1_prob
+        super().__init__(probability=probability,
+                         arity=arity,
+                         mut_val_getter=
+                         lambda individual, index: individual.bit_flip(index)
+                         if (individual.cell_value(index) and random() <= self.flip_1_prob)
+                         or (individual.cell_value(index) and random() <= 1 - self.flip_1_prob)
+                         else individual.cell_value(index),
                          events=events,
                          n=n)
