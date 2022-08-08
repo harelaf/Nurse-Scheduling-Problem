@@ -33,9 +33,13 @@ After reading the list of nurses from a txt file, we created a SimpleEvolution E
 
 After the successful execution the results are printed to the screen and to a txt file.
 
-The problem we are solving is a minimization problem, we would like to minimize the total amount of constraints not held by the current schedule. Because of that, our target fitness value is 0, the higher the fitness, the worse the schedule is.
+The problem we are solving is a minimization problem, we would like to minimize the total amount of constraints not held by the current schedule. consequently, our target fitness value is 0, the higher the fitness, the worse the schedule is.
 
-Our population contains 500 individuals, each individual is a bit vector of length (total nurse amount) * (total shifts per week). The custom evaluation method we wrote evaluated an individual based on the above written constraints. As stated before, hard constraints are more important than soft constraints, which is why the evaluation method adds a heavier weight to the fitness score when one is broken.
+Our population contains 200 individuals, each individual is a bit vector of length (total nurse amount) * (total shifts per week). The custom evaluation method we wrote evaluated an individual based on the above written constraints. As stated before, hard constraints are more important than soft constraints, which is why the default heavy weight is 10 and the default soft weight is 1.
+
+We used two types of mutations:
+1. Our custom K-Point-Crossover mutation, supported by EC-KitY. The reason we created a custom mutation is because the default K-Point-Crossover mutation chooses K points at random, while ours chooses K points with spaces equal to n*x between them (n is a parameter, x is a natural number). This custom mutation is more beneficial to this problem because it allows us to swap full shifts/days between schedules, and not random parts of them.
+2. An N-Bit-Flip-Mutation. After many tests and parameter changes, we've decided that the best number of bits to flip is n=3.
 
 ## Statistics And Results
 WORK IN PROGRESS
