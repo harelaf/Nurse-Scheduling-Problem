@@ -59,7 +59,7 @@ After 20 executions (with random seeds), these are the results:
 | #7 | 457 | 157.2s | 0.0 |
 | #8 | 211 | 60s | 0.0 |
 | #9 | 619 | 184.3s | 0.0 |
-| #10 |  |  |  |
+| #10 | 171 | 48.2s | 0.0 |
 | #11 |  |  |  |
 | #12 |  |  |  |
 | #13 |  |  |  |
@@ -70,6 +70,8 @@ After 20 executions (with random seeds), these are the results:
 | #18 |  |  |  |
 | #19 |  |  |  |
 | #20 |  |  |  |
+
+
 
 
 ## Citation
