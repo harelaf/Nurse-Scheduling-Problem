@@ -1,0 +1,287 @@
+Day 1
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Garry
+
+Nurses:
+Simha
+Shirel
+Shan
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Larry
+Sandy
+
+Nurses:
+Shilo
+Shlomi
+Shirel
+Shulamit
+Shelly
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Larry
+Garry
+
+Nurses:
+Shoshana
+Shulla
+Shishlik
+Shemer
+Shelly
+Shan
+Shirley
+
+Day 2
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Mr. Krabs
+
+Nurses:
+Shimshon
+Simha
+Shalom
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Plankton
+Larry
+
+Nurses:
+Shoshana
+Shlomi
+Shulamit
+Shimi
+Shan
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Plankton
+Spongebob
+
+Nurses:
+Shimshon
+Shlomi
+Simha
+Shlomit
+Sharon
+Shahar
+Shirley
+
+Day 3
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Sandy
+
+Nurses:
+Shoshana
+Shulla
+Shelly
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Mr. Krabs
+Pearl
+
+Nurses:
+Shoshana
+Shishlik
+Shemer
+Shahar
+Shirley
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Pearl
+Garry
+
+Nurses:
+Shilo
+Shaked
+Shulamit
+Shalom
+Shimi
+Shan
+Shir
+
+Day 4
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Sandy
+
+Nurses:
+Shimshon
+Shoshana
+Shelly
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Squidward
+Sandy
+
+Nurses:
+Shulla
+Shaked
+Simha
+Shirel
+Shimi
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Squidward
+Patrick
+
+Nurses:
+Shulla
+Shlomit
+Shimi
+Shemer
+Sharon
+Shani
+Shahar
+
+Day 5
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Spongebob
+
+Nurses:
+Shilo
+Shlomi
+Shulamit
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Spongebob
+Sandy
+
+Nurses:
+Shlomit
+Shulamit
+Sharon
+Shelly
+Shir
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Mr. Krabs
+Plankton
+
+Nurses:
+Shilo
+Shaked
+Simha
+Shirel
+Shemer
+Sharon
+Shelly
+
+Day 6
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Patrick
+
+Nurses:
+Shishlik
+Shlomit
+Shalom
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Spongebob
+Pearl
+
+Nurses:
+Shilo
+Shlomi
+Shirel
+Shalom
+Shir
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Spongebob
+Garry
+
+Nurses:
+Shimshon
+Shirel
+Shelly
+Shan
+Shani
+Shahar
+Shirley
+
+Day 7
+==========
+
+Morning Shift - 7AM-2PM
+==========
+Chief nurses:
+Patrick
+
+Nurses:
+Shulla
+Shimi
+Sharon
+
+Afternoon Shift - 2PM-9PM
+==========
+Chief nurses:
+Spongebob
+Pearl
+
+Nurses:
+Shoshana
+Shulla
+Shaked
+Shirel
+Shimi
+
+Night Shift - 9PM-7AM
+==========
+Chief nurses:
+Sandy
+Pearl
+
+Nurses:
+Shoshana
+Shishlik
+Simha
+Shlomit
+Shalom
+Shani
+Shir
+

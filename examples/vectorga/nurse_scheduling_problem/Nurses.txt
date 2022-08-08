@@ -1,0 +1,44 @@
+// format:
+// 
+// nurses:
+// X
+// Y
+// Z
+// chief nurses:
+// X
+// Y
+// Z
+
+nurses:
+Shilo
+Shimshon
+Shoshana
+Shlomi
+Shulla
+Shaked
+Shishlik
+Simha
+Shirel
+Shlomit
+Shulamit
+Shalom
+Shimi
+Shemer
+Sharon
+Shelly
+Shan
+Shani
+Shahar
+Shir
+Shirley
+
+chief nurses:
+Mr. Krabs
+Plankton
+Spongebob
+Squidward
+Patrick
+Larry
+Sandy
+Pearl
+Garry
