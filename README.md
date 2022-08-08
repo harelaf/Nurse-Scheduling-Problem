@@ -39,7 +39,7 @@ We used two types of mutations:
 1. Our custom K-Point-Crossover mutation, supported by EC-KitY. The reason we created a custom mutation is because the default K-Point-Crossover mutation chooses K points at random, while ours chooses K points with spaces equal to n*x between them (n is a parameter, x is a natural number). This custom mutation is more beneficial to this problem because it allows us to swap full shifts/days between schedules, and not random parts of them.
 2. An N-Bit-Flip-Mutation. After many tests and parameter changes, we've decided that the best number of bits to flip is n=3.
 
-## Statistics And Results
+## Results And Statistics 
 In our example we used 30 total nurses (9 chief nurses and 21 nurses, Nurses.txt file is located in examples/vectorga/nurse_scheduling_problem).
 
 Max generation = 1000
@@ -62,7 +62,7 @@ After 20 executions (with random seeds), these are the results:
 | #10 | 171 | 48.2s | 0.0 |
 | #11 | 1000 | 296.4s | 1.0 |
 | #12 | 210 | 61.1s | 0.0 |
-| #13 |  |  |  |
+| #13 | 1000 | 296s | 1.0 |
 | #14 |  |  |  |
 | #15 |  |  |  |
 | #16 |  |  |  |
