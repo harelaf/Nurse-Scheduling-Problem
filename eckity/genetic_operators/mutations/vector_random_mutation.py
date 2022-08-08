@@ -123,21 +123,3 @@ class BitStringVectorNFlipMutation(VectorNPointMutation):
                              index) if random() <= self.probability_for_each else individual.cell_value(index),
                          events=events,
                          n=n)
-
-
-class BitStringVectorNFlipMutationWithWeight(VectorNPointMutation):
-    """
-    N Point Bit-Flip Mutation With Weight
-    """
-
-    def __init__(self, probability=1.0, arity=1, events=None, flip_1_prob=0.5, n=1):
-        self.flip_1_prob = flip_1_prob
-        super().__init__(probability=probability,
-                         arity=arity,
-                         mut_val_getter=
-                         lambda individual, index: individual.bit_flip(index)
-                         if (individual.cell_value(index) and random() <= self.flip_1_prob)
-                         or (individual.cell_value(index) and random() <= 1 - self.flip_1_prob)
-                         else individual.cell_value(index),
-                         events=events,
-                         n=n)

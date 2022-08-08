@@ -9,7 +9,6 @@ from SchedulingEvaluator import NIGHT_SHIFT
 from eckity.algorithms.simple_evolution import SimpleEvolution
 from eckity.subpopulation import Subpopulation
 from eckity.creators.ga_creators.bit_string_vector_creator import GABitStringVectorCreator
-from eckity.genetic_operators.crossovers.vector_k_point_crossover import VectorKPointsCrossover
 from eckity.genetic_operators.mutations.vector_random_mutation import BitStringVectorNFlipMutation
 from eckity.genetic_operators.selections.tournament_selection import TournamentSelection
 from eckity.breeders.simple_breeder import SimpleBreeder
@@ -17,11 +16,13 @@ from eckity.statistics.best_average_worst_statistics import BestAverageWorstStat
 
 from vector_k_point_crossover_multiplicity_of_n import VectorKPointsCrossoverWithMultiplicity
 
+from time import time
+
 FILENAME = 'Nurses.txt'
 RESULTS_FILE = 'Results.txt'
 NURSE_LIST = []
 CHIEF_LIST = []
-POPULATION_SIZE = 150
+POPULATION_SIZE = 200
 MAX_GENERATION = 1000
 
 
@@ -88,6 +89,7 @@ def get_shift(best_of_run, day, shift):
 def main():
     read_file()
     bit_vector_length = SHIFTS_PER_WEEK * (len(NURSE_LIST) + len(CHIEF_LIST))
+    start_time = time()
     algo = SimpleEvolution(
         Subpopulation(
             # A single bit vector represents the whole schedule, for all nurses.
@@ -97,15 +99,14 @@ def main():
             evaluator=NurseSchedulingEvaluator(nurse_amount=len(NURSE_LIST), chief_amount=len(CHIEF_LIST)),
             # This is a minimization problem, since we want to minimize the total amount of constraints broken.
             higher_is_better=False,
-            elitism_rate=0.3,
-            # 50% chance for a (SHIFTS_PER_WEEK - 1) point vector-crossover,
-            # 20% chance for an N bit flip mutation with N=0.2*vector_length.
+            elitism_rate=0.25,
+            # 80% chance for a (len(NURSE_LIST) + len(CHIEF_LIST)) point vector-crossover, with equal distances,
+            # 80% chance for an N bit flip mutation with N=3.
             operators_sequence=[
-                VectorKPointsCrossoverWithMultiplicity(probability=0.8, n=(len(NURSE_LIST) + len(CHIEF_LIST)), k=3),
-                #VectorKPointsCrossover(probability=0.7, k=(len(NURSE_LIST) + len(CHIEF_LIST))),
+                VectorKPointsCrossoverWithMultiplicity(probability=0.8, n=(len(NURSE_LIST) + len(CHIEF_LIST)), k=4),
                 BitStringVectorNFlipMutation(probability=0.8, n=3, probability_for_each=0.5)
             ],
-            # Tournament selection with a probability of 1 and with tournament size of 5.
+            # Tournament selection with a probability of 1 and with tournament size of 16.
             selection_methods=[
                 (TournamentSelection(tournament_size=16, higher_is_better=False), 1)
             ]
@@ -114,11 +115,12 @@ def main():
         max_workers=1,
         max_generation=MAX_GENERATION,
         statistics=BestAverageWorstStatistics(),
-        # random_seed=0
     )
     algo.evolve()
+    end_time = time()
     print(algo.execute())
     print_results(algo.best_of_run_)
+    print(f'Run time: {end_time-start_time}s')
 
 
 if __name__ == '__main__':
